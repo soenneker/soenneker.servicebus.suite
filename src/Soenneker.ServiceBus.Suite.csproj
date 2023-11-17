@@ -39,6 +39,6 @@
 
         <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All" />
         <PackageReference Include="Soenneker.ServiceBus.Receptor" Version="2.1.5" />
-        <PackageReference Include="Soenneker.ServiceBus.Transmitter" Version="2.0.413" />
+        <PackageReference Include="Soenneker.ServiceBus.Transmitter" Version="2.1.9" />
     </ItemGroup>
 </Project>
