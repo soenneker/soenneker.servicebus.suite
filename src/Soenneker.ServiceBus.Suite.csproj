@@ -39,6 +39,6 @@
 
         
         <PackageReference Include="Soenneker.ServiceBus.Receptor" Version="2.1.203" />
-        <PackageReference Include="Soenneker.ServiceBus.Transmitter" Version="2.1.389" />
+        <PackageReference Include="Soenneker.ServiceBus.Transmitter" Version="2.1.390" />
     </ItemGroup>
 </Project>
