@@ -21,7 +21,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\src\Soenneker.ServiceBus.Suite.csproj" />
+        <ProjectReference Include="..\..\src\Soenneker.ServiceBus.Suite.csproj" />
     </ItemGroup>
 
 </Project>
