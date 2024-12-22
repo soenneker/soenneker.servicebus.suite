@@ -1,12 +1,19 @@
-﻿using Xunit;
+using Soenneker.Tests.FixturedUnit;
+using Xunit;
 
-namespace Soenneker.ServiceBus.Suite.Tests
+namespace Soenneker.ServiceBus.Suite.Tests;
+
+[Collection("Collection")]
+public class ServiceBusSuiteTests : FixturedUnitTest
 {
-    public class ServiceBusSuiteTests
+
+    public ServiceBusSuiteTests(Fixture fixture, ITestOutputHelper output) : base(fixture, output)
     {
-        [Fact]
-        public void Default()
-        {
-        }
+    }
+
+    [Fact]
+    public void Default()
+    {
+
     }
 }
