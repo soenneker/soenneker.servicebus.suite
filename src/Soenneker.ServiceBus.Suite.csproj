@@ -38,6 +38,6 @@
         <None Include="..\icon.png" Pack="true" PackagePath="\" />
 
         <PackageReference Include="Soenneker.ServiceBus.Receptor" Version="3.0.1531" />
-        <PackageReference Include="Soenneker.ServiceBus.Transmitter" Version="3.0.2916" />
+        <PackageReference Include="Soenneker.ServiceBus.Transmitter" Version="3.0.2919" />
     </ItemGroup>
 </Project>
