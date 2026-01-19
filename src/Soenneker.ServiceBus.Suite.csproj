@@ -42,7 +42,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Soenneker.ServiceBus.Receptor" Version="4.0.1836" />
+        <PackageReference Include="Soenneker.ServiceBus.Receptor" Version="4.0.1837" />
         <PackageReference Include="Soenneker.ServiceBus.Transmitter" Version="4.0.3453" />
     </ItemGroup>
 </Project>
