@@ -11,7 +11,8 @@ public static class ServiceBusSuiteRegistrar
     /// <summary>
     /// Adds all the Azure Service Bus utilities needed for use <para/>
     /// </summary>
-    /// <param name="services"></param>
+    /// <param name="services">Service collection that receives the registration.</param>
+    /// <returns>The same service collection, so additional registrations can be chained.</returns>
     public static IServiceCollection AddServiceBusSuiteAsSingleton(this IServiceCollection services)
     {
         services.AddServiceBusTransmitterAsSingleton();
@@ -22,7 +23,8 @@ public static class ServiceBusSuiteRegistrar
     /// <summary>
     /// Adds all the Azure Service Bus utilities needed for use <para/>
     /// </summary>
-    /// <param name="services"></param>
+    /// <param name="services">Service collection that receives the registration.</param>
+    /// <returns>The same service collection, so additional registrations can be chained.</returns>
     public static IServiceCollection AddServiceBusSuiteAsScoped(this IServiceCollection services)
     {
         services.AddServiceBusTransmitterAsScoped();
