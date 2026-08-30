@@ -4,12 +4,12 @@ using Soenneker.ServiceBus.Transmitter.Registrars;
 namespace Soenneker.ServiceBus.Suite.Registrars;
 
 /// <summary>
-/// A concoction of Azure Service Bus utilities and libraries <para/>
+/// Registers the Soenneker Service Bus transmitter stack. Concrete receptors are not registered or started by this class.
 /// </summary>
 public static class ServiceBusSuiteRegistrar
 {
     /// <summary>
-    /// Adds all the Azure Service Bus utilities needed for use <para/>
+    /// Adds the transmitter and its singleton dependencies.
     /// </summary>
     /// <param name="services">Service collection that receives the registration.</param>
     /// <returns>The same service collection, so additional registrations can be chained.</returns>
@@ -21,7 +21,7 @@ public static class ServiceBusSuiteRegistrar
     }
 
     /// <summary>
-    /// Adds all the Azure Service Bus utilities needed for use <para/>
+    /// Adds a scoped transmitter facade with the transmitter's shared dependencies.
     /// </summary>
     /// <param name="services">Service collection that receives the registration.</param>
     /// <returns>The same service collection, so additional registrations can be chained.</returns>

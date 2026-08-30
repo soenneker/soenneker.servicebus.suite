@@ -5,33 +5,66 @@
 
 # Soenneker.ServiceBus.Suite
 
-A concoction of Azure Service Bus utilities and libraries.
+A convenience package that references the Soenneker Service Bus transmitter and receptor foundations and provides one registrar for the transmitter stack.
 
-## Install
+## Installation
 
 ```bash
 dotnet add package Soenneker.ServiceBus.Suite
 ```
 
-## Quick start
+## Configuration
+
+The transmitter requires these values:
+
+```json
+{
+  "Azure": {
+    "ServiceBus": {
+      "ConnectionString": "Endpoint=sb://...",
+      "Enable": true,
+      "Log": false,
+      "TransmitterLogging": false
+    }
+  }
+}
+```
+
+Store the connection string in a protected configuration provider. `Enable=false` makes transmitter calls return without sending. The logging switches can expose complete message bodies and should remain disabled for sensitive payloads.
+
+## Register the transmitter stack
 
 ```csharp
 using Soenneker.ServiceBus.Suite.Registrars;
-using Microsoft.Extensions.DependencyInjection;
 
-var services = new ServiceCollection();
-var result = services.AddServiceBusSuiteAsSingleton();
+services.AddServiceBusSuiteAsSingleton();
 ```
 
-Adds all the Azure Service Bus utilities needed for use.
+This adds `IServiceBusTransmitter` plus its background queue, message builder, sender cache, queue utility, administration client, and top-level Service Bus client dependencies.
 
-## What you get
+For a scoped transmitter facade:
 
-- `ServiceBusSuiteRegistrar` — A concoction of Azure Service Bus utilities and libraries.
+```csharp
+services.AddServiceBusSuiteAsScoped();
+```
 
-## API at a glance
+The scoped variant makes `IServiceBusTransmitter` scoped. Its registrar still uses singleton background-queue, message-builder, sender-cache, administration-client, and data-plane-client services.
 
-| API | What it does | Result / important behavior |
-| --- | --- | --- |
-| `ServiceBusSuiteRegistrar.AddServiceBusSuiteAsSingleton(services)` | Adds all the Azure Service Bus utilities needed for use. | The same service collection, so additional registrations can be chained. |
-| `ServiceBusSuiteRegistrar.AddServiceBusSuiteAsScoped(services)` | Adds all the Azure Service Bus utilities needed for use. | The same service collection, so additional registrations can be chained. |
+## Send a message
+
+```csharp
+using Soenneker.ServiceBus.Transmitter.Abstract;
+
+await transmitter.SendMessage(
+    message,
+    useQueue: false,
+    cancellationToken);
+```
+
+See `Soenneker.ServiceBus.Transmitter` for foreground versus in-process queued sending, batching, error behavior, and message requirements.
+
+## Receptors are not started automatically
+
+The package references `Soenneker.ServiceBus.Receptor`, so its base types are available, but `AddServiceBusSuiteAsSingleton()` and `AddServiceBusSuiteAsScoped()` do not register a concrete receptor or start a processor.
+
+Register each concrete receptor separately, resolve it during startup, call `Init`, and dispose it during shutdown. Receptors also require queue-management and receive permissions; the transmitter stack requires queue-management and send permissions because it creates missing queues before creating senders.
