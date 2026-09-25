@@ -43,12 +43,12 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Soenneker.ServiceBus.Transmitter" Version="4.0.3948" />
+        <PackageReference Include="Soenneker.ServiceBus.Transmitter" Version="4.0.3952" />
     </ItemGroup>
     <ItemGroup>
         <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="10.0.12" />
     </ItemGroup>
     <ItemGroup>
-        <PackageReference Include="Soenneker.ServiceBus.Receptor" Version="4.0.2064" />
+        <PackageReference Include="Soenneker.ServiceBus.Receptor" Version="4.0.2065" />
     </ItemGroup>
 </Project>
