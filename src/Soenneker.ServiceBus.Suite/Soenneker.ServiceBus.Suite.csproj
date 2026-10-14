@@ -49,6 +49,6 @@
         <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="10.0.13" />
     </ItemGroup>
     <ItemGroup>
-        <PackageReference Include="Soenneker.ServiceBus.Receptor" Version="4.0.2086" />
+        <PackageReference Include="Soenneker.ServiceBus.Receptor" Version="4.0.2088" />
     </ItemGroup>
 </Project>
