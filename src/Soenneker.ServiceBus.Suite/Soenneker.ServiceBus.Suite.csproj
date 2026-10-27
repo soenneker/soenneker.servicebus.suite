@@ -44,11 +44,11 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Soenneker.ServiceBus.Transmitter" Version="11.0.4020" />
+        <PackageReference Include="Soenneker.ServiceBus.Transmitter" Version="11.0.4022" />
     </ItemGroup>
     <ItemGroup>
     </ItemGroup>
     <ItemGroup>
-        <PackageReference Include="Soenneker.ServiceBus.Receptor" Version="11.0.2102" />
+        <PackageReference Include="Soenneker.ServiceBus.Receptor" Version="11.0.2103" />
     </ItemGroup>
 </Project>
